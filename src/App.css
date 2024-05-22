@@ -1,5 +1,21 @@
+.App {
+  font-family: "Josefin Slab", arial, sans-serif;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
 .App-logo {
-  max-width: 300px;
+  max-width: 250px;
   display: block;
-  margin: 20px 30px;
+  margin: 20px 0 0 30px;
+}
+
+.App footer {
+  font-size: 12px;
+  margin: 10px;
+}
+
+.App footer a {
+  color: black;
+  opacity: 0.5;
 }

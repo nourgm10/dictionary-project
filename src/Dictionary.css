@@ -1,0 +1,37 @@
+.Dictionary h1 {
+  display: block;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  height: 26px;
+  line-height: 30px;
+  margin: 50px 0 12px 0;
+  padding-left: 20px;
+}
+
+.Dictionary h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.Dictionary form {
+  display: block;
+  margin: 30px auto;
+  max-width: 400px;
+}
+
+.Dictionary form input:focus {
+  border-color: black;
+  box-shadow: none;
+  outline: 0 none;
+}
+
+.Dictionary .button {
+  font-weight: 600;
+}
+
+.Weather {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 16px;
+}
