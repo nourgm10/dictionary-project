@@ -15,7 +15,7 @@
 }
 
 .Meaning .example {
-  padding: 0 0 10px 10px;
+  padding-left: 20px;
   font-style: italic;
-  opacity: 0.6;
+  font-weight: 600;
 }

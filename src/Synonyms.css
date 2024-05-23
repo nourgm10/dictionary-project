@@ -1,0 +1,20 @@
+.Synonyms {
+  opacity: 0.6;
+}
+
+.Synonyms span {
+  text-decoration: underline;
+}
+
+.Synonyms ul {
+  margin-top: 0;
+}
+
+.Synonyms li {
+  list-style: none;
+  display: inline;
+}
+
+.Synonyms li:after {
+  content: ", ";
+}

@@ -1,7 +1,8 @@
 .App {
   font-family: "Josefin Slab", arial, sans-serif;
   max-width: 1200px;
-  margin: 30px auto;
+  margin: 20px auto;
+  margin-bottom: 100px;
 }
 
 .App-logo {
