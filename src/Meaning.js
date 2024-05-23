@@ -9,13 +9,13 @@ export default function Meaning(props) {
     <div className="Meaning">
       <h3>{props.meaning.partOfSpeech}</h3>
       <div>
-        <p>
+        <div className="definition">
           <span>&#8226; </span>
           {firstDefinition.definition}
           <br />
           <p className="example">{firstDefinition.example}</p>
           <Synonyms synonyms={firstDefinition.synonyms} />{" "}
-        </p>
+        </div>
       </div>
     </div>
   );

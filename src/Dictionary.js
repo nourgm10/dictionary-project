@@ -1,29 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
+import Photos from "./Photos";
 import "./Dictionary.css";
 
-export default function Dictionary() {
-  let [keyword, setKeyword] = useState("");
+export default function Dictionary(props) {
+  let [keyword, setKeyword] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
+  let [photos, setPhotos] = useState(null);
 
-  useEffect(() => {
-    const savedResults = localStorage.getItem("dictionaryResults");
-    if (savedResults) {
-      setResults(JSON.parse(savedResults));
-    }
-  }, []);
-
-  function handleResponse(response) {
+  function handleDictionaryResponse(response) {
     setResults(response.data[0]);
-    localStorage.setItem("dictionaryResults", JSON.stringify(response.data[0]));
   }
 
-  function search(event) {
+  function handlePexelsResponse(response) {
+    setPhotos(response.data.photos);
+  }
+
+  function search() {
+    // documentation: https://dictionaryapi.dev/
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+    axios.get(apiUrl).then(handleDictionaryResponse);
+
+    let pexelsApiKey =
+      "563492ad6f91700001000001fdd29f0808df42bd90c33f42e128fa89";
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+    let headers = { Authorization: `${pexelsApiKey}` };
+    axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
+  }
+
+  function handleSubmit(event) {
     event.preventDefault();
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-    axios.get(apiUrl).then(handleResponse);
-    localStorage.removeItem("dictionaryResults");
+    search();
   }
 
   function handleKeywordChange(event) {
@@ -33,7 +41,7 @@ export default function Dictionary() {
   return (
     <div className="Dictionary">
       <h2 className="question">What word would you like to look up?</h2>
-      <form onSubmit={search}>
+      <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-9">
             <input
@@ -54,6 +62,7 @@ export default function Dictionary() {
         </div>
       </form>
       <Results results={results} />
+      <Photos photos={photos} />
     </div>
   );
 }

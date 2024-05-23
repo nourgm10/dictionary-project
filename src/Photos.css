@@ -1,0 +1,14 @@
+.Photos {
+  padding: 18px;
+  margin: 50px;
+}
+
+.Photos img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  margin-bottom: 45px;
+  object-fit: cover;
+  width: 230px;
+  height: 230px;
+}
