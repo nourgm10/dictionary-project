@@ -12,7 +12,7 @@ function App() {
         <main>
           <Dictionary />
         </main>
-        <footer className="fixed-bottom text-center">
+        <footer className="sticky-bottom text-center">
           This project was coded by{" "}
           <a
             href="https://www.linkedin.com/in/nourlivia/"
