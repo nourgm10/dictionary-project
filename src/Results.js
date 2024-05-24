@@ -4,7 +4,27 @@ import Meaning from "./Meaning";
 import Phonetic from "./Phonetic";
 
 export default function Results(props) {
-  if (props.results) {
+  if (props.error) {
+    if (props.photosError) {
+      return (
+        <div className="Results">
+          <h2>
+            Sorry, we couldn't find anything for "{props.keyword}
+            ". Please double-check your spelling or try another word.
+          </h2>
+        </div>
+      );
+    } else {
+      return (
+        <div className="Results">
+          <h2>
+            Sorry, we couldn't find a definition for "{props.keyword}", but here
+            are some cool photos nonetheless!
+          </h2>
+        </div>
+      );
+    }
+  } else if (props.results) {
     return (
       <div className="Results">
         <h1 className="text-lowercase">{props.results.word}</h1>
